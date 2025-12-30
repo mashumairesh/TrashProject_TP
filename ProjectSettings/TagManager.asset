@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Test
+    uniqueID: 1850189105
+    locked: 0
+  - name: BG
+    uniqueID: 2379876639
+    locked: 0
+  - name: Char
+    uniqueID: 3534872201
+    locked: 0
+  - name: Overlay
+    uniqueID: 2686580187
+    locked: 0
