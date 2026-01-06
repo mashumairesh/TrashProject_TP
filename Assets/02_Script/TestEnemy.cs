@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class TestEnemy : MonoBehaviour
 {
     [SerializeField] private MMF_Player mmfCamera;
     [SerializeField] private MMF_Player mmfPlayer;

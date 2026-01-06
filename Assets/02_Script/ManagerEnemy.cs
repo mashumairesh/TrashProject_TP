@@ -66,15 +66,15 @@ public class ManagerEnemy : MonoBehaviour
     public static ManagerEnemy Instance { get; private set; }
     public bool PlayerDead;
 
-    [SerializeField] private Enemy orgEnemy;
+    [SerializeField] private TestEnemy orgEnemy;
     [SerializeField] private ComboSystem comboSystem;
 
     [SerializeField] private Char_TestCode player;
 
     //모든 적의 리스트
-    [SerializeField] private List<Enemy> enemies;
+    [SerializeField] private List<TestEnemy> enemies;
     //[SerializeField] private Queue<Enemy> enemieQ;
-    [SerializeField] private List<Enemy> enemiL;
+    [SerializeField] private List<TestEnemy> enemiL;
     [SerializeField] private int EnemeyHendle = 0;
 
     [SerializeField] private List<GameObject> ePos; //적 포지션
@@ -107,7 +107,7 @@ public class ManagerEnemy : MonoBehaviour
 
         PlayerDead = false;
 
-        enemies = new List<Enemy>();
+        enemies = new List<TestEnemy>();
         for(int i = 0; i < 40; i++)
         {
             enemies.Add(Instantiate(orgEnemy));//좆까 씨발새끼야
@@ -131,7 +131,7 @@ public class ManagerEnemy : MonoBehaviour
         }
 
         //enemieQ = new Queue<Enemy>();
-        enemiL = new List<Enemy>(); 
+        enemiL = new List<TestEnemy>(); 
 
         //대충 쳐넣기? ㄴ
         for (int i = 0; i < ePos.Count; i++)
@@ -234,7 +234,7 @@ public class ManagerEnemy : MonoBehaviour
     /// <summary>
     /// 적이 뒈ㅔㅔㅔㅔㅔㅔㅔㅔ진 경우 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
     /// </summary>
-    public void Call_DeadEnemy(Enemy dead)
+    public void Call_DeadEnemy(TestEnemy dead)
     {
         //스크롤링
         //오브젝트 정리
