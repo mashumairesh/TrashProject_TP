@@ -50,6 +50,12 @@ TagManager:
   - name: Char
     uniqueID: 3534872201
     locked: 0
+  - name: Attack
+    uniqueID: 1451938441
+    locked: 0
+  - name: Effect
+    uniqueID: 409821725
+    locked: 0
   - name: Overlay
     uniqueID: 2686580187
     locked: 0
