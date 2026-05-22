@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951d796173886424c925d7bd5c158ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgHealth: {fileID: 1876498276}
 --- !u!1 &72932275
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,12 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadb20e05e97fcb4cbd2213fbbb7c71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDamage: 5
-  mSpeed: 0
-  mRange: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!4 &72932279
 Transform:
   m_ObjectHideFlags: 0
@@ -290,7 +283,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 73521657}
-  - component: {fileID: 73521658}
   m_Layer: 0
   m_Name: ScreenInputManager
   m_TagString: Untagged
@@ -314,24 +306,6 @@ Transform:
   - {fileID: 307472576}
   m_Father: {fileID: 98068229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &73521658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73521656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b329fb13d0dfcc468f40277d3f85379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerSprit:
-  - {fileID: 21300000, guid: 951dc8328491c3c43b2c02f67564a4fd, type: 3}
-  tmp: {fileID: 72932275}
-  towerColab:
-  - {fileID: 72932275}
-  sprDummy: {fileID: 307472577}
 --- !u!1 &98068228
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +349,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 110635178}
-  - component: {fileID: 110635179}
   m_Layer: 0
   m_Name: PathManager
   m_TagString: Untagged
@@ -398,23 +371,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 98068229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &110635179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110635177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d52a307e5004a23469089f77c2f2f130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 1087874792}
-  - {fileID: 1475366576}
-  - {fileID: 958880923}
-  - {fileID: 1876247531}
 --- !u!1 &127054465
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +380,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 127054467}
-  - component: {fileID: 127054466}
   m_Layer: 0
   m_Name: TowerManager
   m_TagString: Untagged
@@ -432,18 +387,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &127054466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127054465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d563e6fb81f6b4c89868e17e7d1612, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &127054467
 Transform:
   m_ObjectHideFlags: 0
@@ -470,7 +413,6 @@ GameObject:
   - component: {fileID: 167175835}
   - component: {fileID: 167175834}
   - component: {fileID: 167175833}
-  - component: {fileID: 167175836}
   m_Layer: 0
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -585,23 +527,6 @@ Transform:
   - {fileID: 61379259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &167175836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167175832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf572c5b431fcb549b9fb931abe7d7a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mHealth: 100
-  mSpeed: 1
-  mTypeEnemy: {fileID: 0}
-  MoveModule2D: {fileID: 417936223}
-  EnemyHealthModule: {fileID: 61379260}
 --- !u!1 &307472575
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,13 +657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6dde251884a904399bc600ce36158f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 167175836}
-  moveParent: 1
-  nodes: []
-  arriveDistance: 0.05
-  speedMultiplier: 1
-  speedAdd: 0
-  minFinalSpeed: 0
 --- !u!1 &740782820
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +692,126 @@ Transform:
   - {fileID: 1876247531}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &851633676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 851633677}
+  - component: {fileID: 851633680}
+  - component: {fileID: 851633679}
+  - component: {fileID: 851633678}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &851633677
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851633676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1115709013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 81.14066, y: 123.73333}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &851633678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851633676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 851633679}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &851633679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851633676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4199841314539542550, guid: 32a116688f3a0304295928fc24df8ee3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &851633680
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851633676}
+  m_CullTransparentMesh: 1
 --- !u!1 &884748380
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +997,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 127054466}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TowerManager, Assembly-CSharp
         m_MethodName: CanceledTower
         m_Mode: 1
@@ -1359,6 +1397,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1115709012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115709013}
+  m_Layer: 5
+  m_Name: Tower_BTN_Tmp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1115709013
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115709012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 851633677}
+  m_Father: {fileID: 2116126901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1284138524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 820, y: 420}
+  m_AnchoredPosition: {x: 290, y: 333}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744506496
@@ -1739,7 +1813,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 127054466}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TowerManager, Assembly-CSharp
         m_MethodName: SelectedTower
         m_Mode: 3
@@ -2251,6 +2325,7 @@ RectTransform:
   - {fileID: 1388136493}
   - {fileID: 917164633}
   - {fileID: 1744506495}
+  - {fileID: 1115709013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
