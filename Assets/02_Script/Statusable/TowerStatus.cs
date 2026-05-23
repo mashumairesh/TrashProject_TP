@@ -1,9 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class TowerStatus
+public class TowerStatus : MonoBehaviour
 {
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //        UpdateEXP(1f);
+    //}
+
     public Sprite sprite;
 
     //능력치, 능력치 사용 쿨타임,
@@ -31,7 +40,7 @@ public class TowerStatus
     /// <summary>
     /// 현제 레벨입니다.
     /// </summary>
-    public int Level;
+    [HideInInspector]public int Level = 1;
 
     /// <summary>
     /// 달성할 수 있는 최대 래밸입니다.
@@ -48,7 +57,7 @@ public class TowerStatus
     /// </summary>
     public float EXPLevelUp;
 
-    public Event EventLevelUp;
+    public UnityEvent EventLevelUp;
 
     /// <summary>
     /// 상태를 초기화합니다.
@@ -63,7 +72,7 @@ public class TowerStatus
     /// </summary>
     public void UpdateStatus()
     {
-
+        abilityValue += abilityValueUp;
     }
 
     /// <summary>
@@ -72,7 +81,10 @@ public class TowerStatus
     public void UpdateLevel()
     {
         //레벨업시 이벤트도 나와야함
-        EventLevelUp.Use();
+        EXPLevelUp += EXPLevelUp;
+        Level++;
+        UpdateStatus();
+        EventLevelUp.Invoke();
     }
 
     /// <summary>
@@ -82,13 +94,14 @@ public class TowerStatus
     {
         EXP += rhs;
 
-        if (EXP > (EXPLevelUp * Level))
+        if (EXP > (EXPLevelUp) && Level <= LevelMax)
         {
-            EXP -= EXPLevelUp * Level;
+            EXP -= EXPLevelUp;
             UpdateLevel();
         }
     }
 
+    
 
 
 
