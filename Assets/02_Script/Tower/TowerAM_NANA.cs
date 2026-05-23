@@ -12,36 +12,74 @@ public class TowerAM_NANA : TowerAttackModule
     [SerializeField] private GameObject projectile;
     [SerializeField] private List<GameObject> projectilePools;
 
-
     [SerializeField] private float projectileDistance = 20f;
     [SerializeField] private float projectileDuration = 1f;
+
+    [SerializeField] private bool isHasEnemy = false;
 
     private void Awake()
     {
         Enemy = new List<GameObject>();
+        cooltimeAbilityCurrunt = cooltimeAbility;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Trigger");
-        if (collision.gameObject.CompareTag("Enemy"))
-            Enemy.Add(collision.gameObject);
-
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isHasEnemy)
         {
-            Attack();
+            cooltimeAbilityCurrunt += Time.deltaTime;
+            if (cooltimeAbilityCurrunt > cooltimeAbility)
+            {
+                Attack();
+                cooltimeAbilityCurrunt = 0;
+            }
         }
     }
 
+    /// <summary>
+    /// 적이 반경에 위치할경우 지속적으로 해당 관련 부분을 업데이트 하고 기록함.
+    /// TriggerEnter2D하고 병합되는 부분이 생김.
+    /// 다만 0.02f 정도의 오차율이라 감안할 예정.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            if (Enemy.Count != 0)
+            {
+                isHasEnemy = true;
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// 적이 사격 반경내에 진입할 경우 풀에 추가.
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+            Enemy.Add(collision.gameObject);
+    }
+    /// <summary>
+    /// 적이 사격 반경외부로 나갈 경우 풀에서 제거.
+    /// 만약 풀이 0일경우 쿨타임 초기화
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy.Remove(collision.gameObject);
+            if (Enemy.Count == 0)
+            {
+                isHasEnemy = false;
+                cooltimeAbilityCurrunt = cooltimeAbility;
+            }
+        }
+    }
 
     /// <summary>
     /// 공격 함수입니다. 호출 딸깍.
@@ -62,12 +100,11 @@ public class TowerAM_NANA : TowerAttackModule
     /// <param name="enemy"></param>
     private void ShootProjectile(GameObject enemy)
     {
+        //풀에서 퍼와서 임시 저장.
         GameObject bullet = GetProjectileFromPool();
 
         bullet.transform.DOKill();
-
         bullet.SetActive(true);
-
         bullet.transform.position = transform.position;
 
         Vector2 dir =
