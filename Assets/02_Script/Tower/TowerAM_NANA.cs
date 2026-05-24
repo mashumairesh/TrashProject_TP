@@ -11,9 +11,17 @@ public class TowerAM_NANA : TowerAttackModule
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private List<GameObject> projectilePools;
+    [SerializeField] private float Damage;
 
+    [Space(10f)]
+    [SerializeField] private float Ability1_CooltimeDownPer;
+    [SerializeField] private float Ability1_ApplyTime;
+    [SerializeField] private bool Ability1_Apply = false;
+    [SerializeField] private IEnumerator cor_Ability1;
+
+    [Space(10f)]
     [SerializeField] private float projectileDistance = 20f;
-    [SerializeField] private float projectileDuration = 1f;
+    [SerializeField] private float projectileDuration = 0.3f;
 
     [SerializeField] private bool isHasEnemy = false;
 
@@ -25,6 +33,7 @@ public class TowerAM_NANA : TowerAttackModule
 
     private void FixedUpdate()
     {
+        //Ability Normal
         if (isHasEnemy)
         {
             cooltimeAbilityCurrunt += Time.deltaTime;
@@ -34,6 +43,18 @@ public class TowerAM_NANA : TowerAttackModule
                 cooltimeAbilityCurrunt = 0;
             }
         }
+        //Ability 1
+        //공격속도 상승
+        cooltimeAbility1Currunt += Time.deltaTime;
+        if (cooltimeAbility1Currunt > cooltimeAbility1)
+        {
+            Ability1();
+            cooltimeAbility1Currunt = 0;
+        }
+
+        //Ability 2
+
+
     }
 
     /// <summary>
@@ -94,6 +115,29 @@ public class TowerAM_NANA : TowerAttackModule
         ShootProjectile(target);
     }
 
+    public override void Ability1()
+    {
+        if (cor_Ability1 != null)
+            StopCoroutine(cor_Ability1);
+        cor_Ability1 = corFunc_Ability1();
+        StartCoroutine(cor_Ability1);
+    }
+
+    public IEnumerator corFunc_Ability1()
+    {
+        float tmp = cooltimeAbility;
+        Ability1_Apply = true;
+        cooltimeAbility = cooltimeAbility - cooltimeAbility * Ability1_CooltimeDownPer;
+        yield return new WaitForSeconds(Ability1_ApplyTime);
+        Ability1_Apply = false;
+        cooltimeAbility = tmp;
+    }
+
+    public override void Ability2() 
+    {
+        //Passived
+    }
+
     /// <summary>
     /// 프로젝타일을 발사합니다. DoTween으로 관리합니다.
     /// </summary>
@@ -103,6 +147,8 @@ public class TowerAM_NANA : TowerAttackModule
         //풀에서 퍼와서 임시 저장.
         GameObject bullet = GetProjectileFromPool();
 
+        bullet.GetComponent<Projectile>().Init(Damage);
+        //DoTween 초기화
         bullet.transform.DOKill();
         bullet.SetActive(true);
         bullet.transform.position = transform.position;

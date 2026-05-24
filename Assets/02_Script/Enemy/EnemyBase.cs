@@ -6,6 +6,7 @@ public abstract class EnemyBase : MonoBehaviour
 {
     public float HPmax;
     public float HPcurrunt;
+    public float mSpeed;
 
     public virtual void Init()
     {
